@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'android.aop'
+}
+
+androidAopConfig {
+    // enabled 为 false 切面不再起作用，默认不写为 true
+    enabled true
+    // include 不设置默认全部扫描，设置后只扫描设置的包名的代码
+//    include ' com.example.android_performance_optimization'
+//    // exclude 是扫描时排除的包
+//    // 可排除 kotlin 相关，提高速度
+//    exclude 'kotlin.jvm', 'kotlin.internal','kotlinx.coroutines.internal', 'kotlinx.coroutines.android'
+//
+//    // verifyLeafExtends 是否开启验证叶子继承，默认打开，@AndroidAopMatchClassMethod 和 @AndroidAopCollectMethod 如果没有设置 LEAF_EXTENDS，可以关闭
+//    verifyLeafExtends true
+//    //默认关闭，开启在 Build 或 打包后 将会生成切点信息json文件在 app/build/tmp/cutInfo.json
+//    cutInfoJson false
+//    //默认开启，设置 false 后会没有增量编译效果 筛选（关键字： AndroidAOP woven info code） build 输出日志可看时间
+//    increment true//修改、增加、删除匹配、收集切面的话，就会走全量编译
+}
+
+android {
+    namespace 'com.example.android_performance_optimization'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.android_performance_optimization"
+        minSdk 22
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'io.github.scwang90:refresh-layout-kernel:2.1.0'      //核心必须依赖
+    implementation 'io.github.scwang90:refresh-header-classics:2.1.0'    //经典刷新头
+    implementation 'io.github.scwang90:refresh-header-radar:2.1.0'       //雷达刷新头
+    implementation 'io.github.scwang90:refresh-header-falsify:2.1.0'     //虚拟刷新头
+    implementation 'io.github.scwang90:refresh-header-material:2.1.0'    //谷歌刷新头
+    implementation 'io.github.scwang90:refresh-header-two-level:2.1.0'   //二级刷新头
+    implementation 'io.github.scwang90:refresh-footer-ball:2.1.0'        //球脉冲加载
+    implementation 'io.github.scwang90:refresh-footer-classics:2.1.0'    //经典加载
+
+    implementation 'com.github.getActivity:TitleBar:9.2'
+
+    implementation 'com.github.getActivity:ToastUtils:9.5'
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation 'io.github.FlyJingFish.AndroidAop:android-aop-core:1.8.8'
+    implementation 'io.github.FlyJingFish.AndroidAop:android-aop-annotation:1.8.8'
+    annotationProcessor 'io.github.FlyJingFish.AndroidAop:android-aop-processor:1.8.8'
+
+    implementation 'com.github.aiceking:AppStartFaster:2.2.0'
+
+}
