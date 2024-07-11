@@ -68,9 +68,9 @@ dependencies {
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    implementation 'io.github.FlyJingFish.AndroidAop:android-aop-core:1.8.8'
-    implementation 'io.github.FlyJingFish.AndroidAop:android-aop-annotation:1.8.8'
-    annotationProcessor 'io.github.FlyJingFish.AndroidAop:android-aop-processor:1.8.8'
+    implementation 'io.github.FlyJingFish.AndroidAop:android-aop-core:1.9.1'
+    implementation 'io.github.FlyJingFish.AndroidAop:android-aop-annotation:1.9.1'
+    annotationProcessor 'io.github.FlyJingFish.AndroidAop:android-aop-processor:1.9.1'
 
     implementation 'com.github.aiceking:AppStartFaster:2.2.0'
 
