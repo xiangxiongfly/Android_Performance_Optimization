@@ -19,3 +19,4 @@ rootProject.name = "Android_Performance_Optimization"
 include ':startup'
 include ':memory'
 include ':layout'
+include ':anr'
